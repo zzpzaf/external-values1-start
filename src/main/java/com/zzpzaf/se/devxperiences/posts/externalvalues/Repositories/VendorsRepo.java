@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -21,8 +22,17 @@ public class VendorsRepo {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    private final String VENDORS_TABLE = "vendors";
-    private final String VENDORCATEGORIES_TABLE = "vendorcategories";
+    // Placeholder syntax
+    @Value("${vendors-table:vendors}")
+    private String VENDORS_TABLE;
+     @Value("${vendor-categories-table:vendorcategories}")
+    private String VENDORCATEGORIES_TABLE;
+    // SpEL syntax
+    // @Value("#{systemProperties['vendors-table'] ?: 'vendors'}")
+    // @Value("#{systemProperties['vendor-categories-table'] ?: 'vendorcategories'}")
+
+    // private final String VENDORS_TABLE = "vendors";
+    // private final String VENDORCATEGORIES_TABLE = "vendorcategories";
 
     public List<Vendor> getAllVendors() {
 

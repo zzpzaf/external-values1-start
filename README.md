@@ -1,4 +1,4 @@
-# Spring Boot Externally Defined Values for properties and messages
+# Spring Boot Externally Defined Values for properties and messages - 2nd commit
 
 ### [externalvalues](https://github.com/zzpzaf/external-values1-start)
 
@@ -8,10 +8,13 @@
 -------
 
 
-This repo can be used as a starting point for start working with externally defined values for properties and messages in [Spring Boot](https://spring.io/).
+The 2nd commit of the repo demonstrates how to use the external table names added in application.properties gile with @Value annotation used in repos in /Repositories project sub-folder.
 
 
-#### Clone this Repo
+values for properties and messages in [Spring Boot](https://spring.io/).
+
+
+#### Clone the starting repo
 
 Use the url of this [repo](https://github.com/zzpzaf/external-values1-start.git): [https://github.com/zzpzaf/external-values1-start.git](https://github.com/zzpzaf/external-values1-start.git) to clone it. e.g.:
 

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -19,11 +20,21 @@ public class CategoriesRepo {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    private final String CATEGORIES_TABLE = "categories";
+    // Placeholder syntax
+    @Value("${categories-table:categories}")
+    // SpEL syntax
+    //@Value("#{systemProperties['categories-table'] ?: 'categories'}")
+    //private final String CATEGORIES_TABLE = "categories"; 
+    private String CATEGORIES_TABLE;
+
+    //private final String CATEGORIES_TABLE; 
+    // Constructor Injection with @Value annotation parameter using SpEL syntax
+    // public CategoriesRepo(@Value("#{systemProperties['categories-table'] ?: 'categories'}") String categoryTable) {
+    //     this.CATEGORIES_TABLE = categoryTable;
+    // }
 
 
     public List<Category> getAllCategories() {
-
         List<Category> categoriesList = new ArrayList<>();
         try {
             categoriesList = jdbcTemplate.query("SELECT * FROM " + CATEGORIES_TABLE, 

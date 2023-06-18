@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -20,7 +21,12 @@ public class ItemsRepo {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    private final String ITEMS_TABLE = "items";
+    // Placeholder syntax
+    @Value("${items-table:items}")
+    // SpEL syntax
+    // @Value("#{systemProperties['items-table'] ?: 'items'}")
+    // private final String ITEMS_TABLE = "items";
+    private String ITEMS_TABLE;
    
     
     public List<Item> getAllItems() {
