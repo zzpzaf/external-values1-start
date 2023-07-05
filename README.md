@@ -8,7 +8,7 @@
 -------
 
 
-The 2nd commit of the repo demonstrates how to use the external table names added in application.properties gile with @Value annotation used in repos in /Repositories project sub-folder.
+The 2nd commit of the repo demonstrates how to use the external table names added in application.properties file with @Value annotation used in repos in /Repositories project sub-folder.
 
 
 values for properties and messages in [Spring Boot](https://spring.io/).
